@@ -20,6 +20,10 @@ class CallLogCreatorBolt: IRichBolt {
         return null
     }
 
+    /**
+     * This bolt takes the input data and forms the two numbers into a uniform string
+     * @param tuple The tuple from the Spout
+     */
     override fun execute(tuple: Tuple?) {
         val from = tuple!!.getString(0)
         val to = tuple.getString(1)

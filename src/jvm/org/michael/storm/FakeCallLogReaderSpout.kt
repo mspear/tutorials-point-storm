@@ -23,6 +23,9 @@ class FakeCallLogReaderSpout : IRichSpout{
         this.collector = collector
     }
 
+    /**
+     * This is the data providing Spout. It creates tuples of fake phone calls and feeds them into the Storm Graph
+     */
     override fun nextTuple() {
         if (idx <= 1000) {
             val mobileNumbers = listOf("1234123401", "1234123402", "1234123403", "1234123404")
@@ -52,6 +55,9 @@ class FakeCallLogReaderSpout : IRichSpout{
 
     override fun close() {}
 
+    /**
+     * This names the fields that nextTuple() is outputting
+     */
     override fun declareOutputFields(declarer: OutputFieldsDeclarer?) {
         declarer!!.declare(Fields("from", "to", "duration"))
     }

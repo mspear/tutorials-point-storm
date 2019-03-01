@@ -24,6 +24,10 @@ class CallLogCounterBolt : IRichBolt {
         return null
     }
 
+    /**
+     * This bolt tracks how many calls have been made from one telephone number to another in a hashmap
+     * @param tuple The tuple input from the last bolt
+     */
     override fun execute(tuple: Tuple?) {
         val call = tuple!!.getString(0)
         val duration = tuple.getInteger(1)
